@@ -18,6 +18,12 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+	<scm>
+		<url>https://github.com/odrianoaliveira/ping-pong</url>
+		<connection>scm:git:git@github.com:odrianoaliveira/ping-pong.git</connection>
+		<developerConnection>scm:git:git@github.com:odrianoaliveira/ping-pong.git</developerConnection>
+	</scm>
+
 	<developers>
 		<developer>
 			<name>Adriano Oliveira</name>
@@ -30,6 +36,14 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
@@ -74,8 +88,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
