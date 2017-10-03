@@ -1,0 +1,16 @@
+
+server:
+  context-path: /rest
+  port: 8080
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: user
+    password: passwd
+
+management:
+  port: 8081
+  security:
+    enabled: false
