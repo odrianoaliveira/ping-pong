@@ -4,10 +4,14 @@ I use this project as a test endpoint.
 
 In order to run it, just type: ```mvn spring-boot:run```
 
-to build the image `make build`
+##Building the image
+1. `make build`
+2. build with Jib plugin `mvn package spring-boot:repackage com.google.cloud.tools:jib-maven-plugin:2.1.0:dockerBuild`
 
-to run the image `docker run -p 9090:9090 adriano/ping-pong:1.0.0`
+##Running the image
+to run the image `docker run -p 9090:9090 --name ping-pong adriano/ping-pong:1.0.0`
 
+##Checking the running instance
 to test the container `http :9090/actuator/health`
 
 should see

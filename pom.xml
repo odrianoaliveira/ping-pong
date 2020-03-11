@@ -79,6 +79,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>2.1.0</version>
+                <configuration>
+                    <to>
+                        <image>adriano/ping-pong:1.0.0</image>
+                    </to>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
