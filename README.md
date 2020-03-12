@@ -1,8 +1,26 @@
-# Ping-Pong API
+# Ping-Pong service
 
-I use this project as a test endpoint.
+This is a small spring boot app, developed just for personal education purpose.
 
-In order to run it, just type: ```mvn spring-boot:run```
+##Running
+1. `mvn spring-boot:run`
+2. testing the endpoint `http :9090/ping`. Using HTTPie https://httpie.org/
+- Should return
+```
+HTTP/1.1 200
+Connection: keep-alive
+Content-Type: application/json
+Date: Thu, 12 Mar 2020 08:29:52 GMT
+Keep-Alive: timeout=60
+Transfer-Encoding: chunked
+
+{
+    "data": "pong",
+    "failure": 0,
+    "status": "200 OK",
+    "success": 1
+}`
+```
 
 ##Building the image
 1. `make build`
